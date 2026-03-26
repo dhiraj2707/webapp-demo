@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-demo
+  labels:
+    app: webapp-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-demo
+  template:
+    metadata:
+      labels:
+        app: webapp-demo
+    spec:
+      containers:
+      - name: webapp-demo
+        image: bhau2707/webapp-demo:latest   # replace with your DockerHub username
+        ports:
+        - containerPort: 80
